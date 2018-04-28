@@ -1,6 +1,6 @@
 {
   "name": "@boostbank/react-stateful",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "main": "lib/index.js",
   "devDependencies": {
     "react": "^16.3.2",
@@ -21,7 +21,8 @@
     "build": "babel src/components -d lib",
     "start": "react-scripts start",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prepare": "npm run build"
   },
   "peerDependencies": {
     "react": "^15.0.0-0 || ^16.0.0-0",
