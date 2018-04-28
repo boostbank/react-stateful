@@ -1,4 +1,4 @@
-import Connect from './Connect';
+import connect from './Connect';
 import GlobalState from './GlobalState';
 
-export {GlobalState, Connect}
+export {GlobalState, connect}
