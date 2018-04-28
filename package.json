@@ -18,5 +18,8 @@
     "start": "react-scripts start",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "dependencies": {
+    "@boostbank/stateful": "^0.1.11"
   }
 }
