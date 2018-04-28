@@ -12,7 +12,7 @@ export default class GlobalState extends Component {
     setComponent(this);
     Stateful.subscribe(state => {
       this.setState(state);
-      notify(this.state);
+      notify(state);
     });
   }
 

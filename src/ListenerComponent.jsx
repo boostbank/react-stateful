@@ -1,5 +1,5 @@
 import React from "react";
-import connect from "./components/Connect";
+import connect from "./components/connect";
 import { rollback } from "@boostbank/stateful";
 
 export default class ListenerComponent extends React.Component {
