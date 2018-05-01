@@ -17,6 +17,7 @@
   "files": [
     "lib/*"
   ],
+  "license": "MIT",
   "scripts": {
     "build": "babel src/components -d lib",
     "start": "react-scripts start",
