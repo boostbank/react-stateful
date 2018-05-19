@@ -30,7 +30,7 @@ class GlobalStateConnector {
 
   listen(listener, updateCallback) {
     if (!containsListeners(getInstance().listeners, listener)) {
-      getInstance().listeners.push({listener, updateCallback});
+      getInstance().listeners.push({ listener, updateCallback });
     }
   }
 
