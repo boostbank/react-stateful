@@ -1,6 +1,6 @@
 {
   "name": "@boostbank/react-stateful",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "main": "lib/index.js",
   "devDependencies": {
     "babel-cli": "6.26.0",
@@ -27,7 +27,6 @@
   },
   "peerDependencies": {
     "react": "^15.0.0-0 || ^16.0.0-0",
-    "@boostbank/stateful": "^0.1.21",
-    "prop-types": "^15.6.1"
+    "@boostbank/stateful": "^0.1.21"
   }
 }
