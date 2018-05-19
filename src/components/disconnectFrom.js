@@ -11,7 +11,7 @@ const isValid = uid => {
   return !/[~`!#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?]/g.test(uid);
 };
 
-export default function connectTo(component, uid, connector) {
+export default function disconnectFrom(uid, connector) {
   if (typeof uid === "string") {
     checkForNumber();
     if (isValid(uid)) {
