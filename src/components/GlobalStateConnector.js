@@ -44,7 +44,7 @@ class GlobalStateConnector {
   ignore(listener) {
     for (let i = 0; i < getInstance().listeners.length; i++) {
       const currentListener = getInstance().listeners[i];
-      if (currentListener === listener) {
+      if (currentListener.listener === listener) {
         getInstance().listeners.splice(i, 1);
         i = getInstance().listeners.length;
       }

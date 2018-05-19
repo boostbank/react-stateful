@@ -1,6 +1,6 @@
 {
   "name": "@boostbank/react-stateful",
-  "version": "0.1.14",
+  "version": "0.1.15",
   "main": "lib/index.js",
   "devDependencies": {
     "babel-cli": "6.26.0",

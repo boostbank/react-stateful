@@ -1,8 +1,12 @@
 import React from "react";
-import connect from "./components/connect";
 import { rollback } from "@boostbank/stateful";
 import { lookup, subModify } from "@boostbank/stateful/lib/substore";
-import { connectTo, disconnectFrom } from "./../src/components/index";
+import {
+  connectTo,
+  disconnectFrom,
+  disconnect,
+  connect
+} from "./../src/components/index";
 
 export default class ListenerComponent extends React.Component {
   constructor() {
@@ -39,7 +43,7 @@ export default class ListenerComponent extends React.Component {
         <input type="text" onChange={this.handleChange} />
         <p
           onClick={() => {
-            console.log(this);
+            disconnect(this);
           }}
         >
           Print state
