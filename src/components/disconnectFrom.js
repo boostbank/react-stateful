@@ -1,6 +1,8 @@
-import { lookup, subscribeTo } from "@boostbank/stateful/lib/substore";
+import { lookup } from "@boostbank/stateful/lib/substore";
+import { ignore } from "./SubStateConnector";
 
 const checkForNumber = uid => {
+  // eslint-disable-next-line
   const number = Number.parseInt(uid.charAt(0));
   if (!Number.isNaN(number)) {
     throw new Error("First character cannot start with number!");
@@ -8,20 +10,17 @@ const checkForNumber = uid => {
 };
 
 const isValid = uid => {
+  // eslint-disable-next-line
   return !/[~`!#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?]/g.test(uid);
 };
 
-export default function disconnectFrom(uid, connector) {
+export default function disconnectFrom(component, uid) {
   if (typeof uid === "string") {
-    checkForNumber();
+    checkForNumber(uid);
     if (isValid(uid)) {
       const registery = lookup();
-      if(typeof connector === "function"){
-        if (registery.hasOwnProperty(uid)) {
-            subscribeTo(uid, connector);
-          }
-      }else{
-          throw new Error("Connector must be a function!");
+      if (registery.hasOwnProperty(uid)) {
+        ignore(component, uid);
       }
     } else {
       throw new Error("UID cannot contain special characters!");
