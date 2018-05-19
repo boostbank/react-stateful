@@ -5,7 +5,11 @@ import { setComponent, reset, notify } from "./GlobalStateConnector";
 export default class GlobalState extends Component {
   constructor(props) {
     super(props);
-    this.state = props.store;
+    if(props.store && props.store.currentStore){
+      this.state = props.store.currentStore;
+    }else{
+      throw new Error("You have to pass a store to the Global State!");
+    }
   }
 
   componentWillMount() {
