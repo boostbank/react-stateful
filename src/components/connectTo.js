@@ -1,6 +1,14 @@
 import { lookup } from "@boostbank/stateful/lib/substore";
 import SubStateConnector from "./SubStateConnector";
 
+const checkForNumber = uid => {
+  if(uid.length >= 1){
+    if (!isNaN(uid.charAt(0))) {
+      throw new Error("First character cannot start with number!");
+    }
+  }
+};
+
 const isValid = uid => {
   // eslint-disable-next-line
   return !/[~`!#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?]/g.test(uid);
@@ -8,6 +16,7 @@ const isValid = uid => {
 
 export default function connectTo(component, uid, connector) {
   if (typeof uid === "string") {
+    checkForNumber(uid);
     if (isValid(uid)) {
       const registery = lookup();
       if (typeof connector === "function") {

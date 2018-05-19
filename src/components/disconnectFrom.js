@@ -2,10 +2,10 @@ import { lookup } from "@boostbank/stateful/lib/substore";
 import { ignore } from "./SubStateConnector";
 
 const checkForNumber = uid => {
-  // eslint-disable-next-line
-  const number = Number.parseInt(uid.charAt(0));
-  if (!Number.isNaN(number)) {
-    throw new Error("First character cannot start with number!");
+  if(uid.length >= 1){
+    if (!isNaN(uid.charAt(0))) {
+      throw new Error("First character cannot start with number!");
+    }
   }
 };
 
