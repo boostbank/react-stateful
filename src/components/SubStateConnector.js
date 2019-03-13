@@ -21,6 +21,7 @@ class SubStateConnector {
     this.currentComponent = undefined;
     this.listeners = {};
     this.listenTo = this.listenTo.bind(this);
+    this.ignore = this.ignore.bind(this);
   }
 
   listenTo(component, uid, connector) {
