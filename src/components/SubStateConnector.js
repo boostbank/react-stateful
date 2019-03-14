@@ -41,7 +41,7 @@ class SubStateConnector {
         for (let i = 0; i < this.listeners[uid].length; i++) {
           const listener = this.listeners[uid][i];
           if (listener.component === component && uid === listener.uid) {
-            unsubscribeFrom(uid, this.listeners[uid].connector);
+            unsubscribeFrom(uid, listener.connector);
             this.listeners[uid].splice(i, 1);
             i--;
           }
