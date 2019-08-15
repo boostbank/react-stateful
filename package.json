@@ -19,7 +19,7 @@
   ],
     "repository": {
     "type": "git",
-    "url": "git+https://github.com/boostbank/stateful.git"
+    "url": "git+https://github.com/boostbank/react-stateful.git"
   },
   "license": "MIT",
   "scripts": {
