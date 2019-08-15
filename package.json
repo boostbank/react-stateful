@@ -17,6 +17,10 @@
   "files": [
     "lib/*"
   ],
+    "repository": {
+    "type": "git",
+    "url": "git+https://github.com/boostbank/stateful.git"
+  },
   "license": "MIT",
   "scripts": {
     "build": "babel src/components -d lib",
