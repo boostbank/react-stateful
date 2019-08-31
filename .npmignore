@@ -4,3 +4,4 @@ project
 .babelrc
 .gitignore
 .vscode/
+package-lock.json
