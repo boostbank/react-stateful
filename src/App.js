@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import GlobalState from "./components/GlobalState";
-import ListenerComponent from './ListenerComponent';
+import PartitionProvider from "./components/PartitionProvider";
 import { createStore, modify } from "@boostbank/stateful";
 
 class App extends Component {
@@ -12,11 +11,9 @@ class App extends Component {
       });
     }, 5000);
     return (
-      <div className="App">
-        <GlobalState store={createStore({test: "No Hello"})}>
-          <ListenerComponent/>
-        </GlobalState>
-      </div>
+      <PartitionProvider>
+        <div className="App"></div>
+      </PartitionProvider>
     );
   }
 }
