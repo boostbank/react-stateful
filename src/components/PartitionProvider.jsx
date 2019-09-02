@@ -1,6 +1,12 @@
 import React from 'react';
 
 class PartitionProvider extends React.Component{
+
+    constructor(props) {
+        super(props);
+    }
+    
+
     render() {
         return (
             <div>
