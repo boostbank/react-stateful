@@ -11,6 +11,7 @@
     "@babel/plugin-transform-react-jsx": "^7.3.0",
     "@babel/plugin-transform-runtime": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
     "@boostbank/stateful": "^1.0.0-beta.1",
     "babel-jest": "^24.9.0",
     "cross-env": "^5.2.0",
@@ -19,6 +20,10 @@
     "react-dom": "^16.9.0",
     "react-scripts": "3.1.1",
     "uuid": "^3.3.3"
+  },
+  "dependencies": {
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
   },
   "files": [
     "lib/*"
@@ -38,17 +43,5 @@
   "peerDependencies": {
     "react": "^15.0.0-0 || ^16.0.0-0",
     "@boostbank/stateful": "^1.0.0-beta.1"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
   }
 }
