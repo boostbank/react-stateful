@@ -10,17 +10,16 @@ const checkForNumber = uid => {
 };
 
 const isValid = uid => {
-  // eslint-disable-next-line
-  return !/[~`!#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?]/g.test(uid);
+  return typeof uid === "string" && uid.length > 0;
 };
 
 export default function connectTo(component, uid, connector) {
   if (typeof uid === "string") {
     checkForNumber(uid);
     if (isValid(uid)) {
-      const registery = lookup();
+      const registry = lookup();
       if (typeof connector === "function") {
-        if (registery.hasOwnProperty(uid)) {
+        if (registry.hasOwnProperty(uid)) {
           SubStateConnector.listenTo(component, uid, connector);
         }
       } else {
