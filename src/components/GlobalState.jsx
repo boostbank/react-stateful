@@ -10,10 +10,10 @@ export default class GlobalState extends Component {
     }else{
       throw new Error("You have to pass a store to the Global State!");
     }
+    setComponent(this);
   }
 
   componentDidMount() {
-    setComponent(this);
     subscribe(store => {
       this.setState(store);
       notify(store);
