@@ -1,13 +1,14 @@
-import { getComponent, listen } from "./GlobalStateConnector";
+import { listen } from "./GlobalStateConnector";
 
 export default function connect(component, connector) {
+  let store = null;
   if (
     component !== undefined &&
     typeof connector === "function"
   ) {
-    listen(component, connector);
+    store = listen(component, connector);
   }else{
     throw new Error("Connector must be a function!");
   }
-  return getComponent().state;
+  return store;
 }
