@@ -12,7 +12,7 @@ export default class GlobalState extends Component {
     }
   }
 
-  componentWillMount() {
+  componentDidMount() {
     setComponent(this);
     Stateful.subscribe(state => {
       this.setState(state);

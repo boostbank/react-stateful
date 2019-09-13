@@ -1,20 +1,16 @@
 import React from "react";
-import { lookup, subModifyAsync } from "@boostbank/stateful";
+import { lookup, subModifyAsync, rollback } from "@boostbank/stateful";
 import {
   connectTo,
   disconnectFrom,
-  disconnect,
-  connect
 } from "./../src/components/index";
 
 export default class ListenerComponent extends React.Component {
-  constructor() {
-    super();
-    this.state = connect(this, store => {
-      this.setState({
-        test: store.test
-      });
-    });
+  constructor(props) {
+    super(props);
+    this.state = {
+
+    };
   }
 
   componentDidMount() {
@@ -22,6 +18,7 @@ export default class ListenerComponent extends React.Component {
       this.setState({
         subText: store.subText
       }, ()=>{
+        console.log("TEST");
         modified(this);
       });
     });
@@ -31,7 +28,7 @@ export default class ListenerComponent extends React.Component {
     disconnectFrom(this, lookup().test);
   }
 
-  handleChange(e) {
+  handleChange = e => {
     subModifyAsync(this, lookup().test, store => {
       store.subText = e.target.value;
       return store;
@@ -44,19 +41,11 @@ export default class ListenerComponent extends React.Component {
     return (
       <div>
         <input type="text" onChange={this.handleChange} />
-        <p
-          onClick={() => {
-            disconnect(this);
-          }}
-        >
-          Print state
-        </p>
         <div
           onClick={() => {
             rollback();
           }}
         >
-          {this.state.test}
         </div>
         <h2>Shared</h2>
         <p>{this.state.subText}</p>
