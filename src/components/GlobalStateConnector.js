@@ -26,45 +26,47 @@ class GlobalStateConnector {
   constructor() {
     this.currentComponent = undefined;
     this.listeners = [];
+    this.listen = this.listen.bind(this);
+    this.notify = this.notify.bind(this);
+    this.ignore = this.ignore.bind(this);
+    this.getComponent = this.getComponent.bind(this);
+    this.setComponent = this.setComponent.bind(this);
+    this.reset = this.reset.bind(this);
   }
 
   listen(listener, updateCallback) {
-    if (!containsListeners(getInstance().listeners, listener)) {
-      getInstance().listeners.push({ listener, updateCallback });
+    if (!containsListeners(this.listeners, listener)) {
+      this.listeners.push({ listener, updateCallback });
     }
   }
 
   notify(state) {
-    for (let i = 0; i < getInstance().listeners.length; i++) {
-      const currentListener = getInstance().listeners[i];
+    for (let i = 0; i < this.listeners.length; i++) {
+      const currentListener = this.listeners[i];
       currentListener.updateCallback(state);
     }
   }
 
   ignore(listener) {
-    for (let i = 0; i < getInstance().listeners.length; i++) {
-      const currentListener = getInstance().listeners[i];
+    for (let i = 0; i < this.listeners.length; i++) {
+      const currentListener = this.listeners[i];
       if (currentListener.listener === listener) {
-        getInstance().listeners.splice(i, 1);
-        i = getInstance().listeners.length;
+        this.listeners.splice(i, 1);
+        i = this.listeners.length;
       }
     }
   }
 
   getComponent() {
-    return getInstance().currentComponent;
+    return this.currentComponent;
   }
 
   setComponent(component) {
-    getInstance().currentComponent = component;
+    this.currentComponent = component;
   }
 
   reset() {
-    getInstance().currentComponent = undefined;
-    getInstance().listeners = [];
+    this.currentComponent = undefined;
+    this.listeners = [];
   }
 }
-
-var initializer = getInstance();
-
-module.exports = initializer;
