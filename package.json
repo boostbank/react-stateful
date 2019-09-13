@@ -1,18 +1,24 @@
 {
   "name": "@boostbank/react-stateful",
-  "version": "0.1.17",
+  "version": "1.0.0-beta.1",
   "main": "lib/index.js",
   "devDependencies": {
-    "babel-cli": "6.26.0",
-    "babel-core": "6.26.0",
-    "babel-eslint": "8.2.2",
-    "babel-preset-es2015": "6.24.1",
-    "cross-env": "^5.1.5",
-    "gulp": "^3.9.1",
-    "jest": "^22.4.4",
-    "react": "^16.3.2",
-    "react-dom": "^16.3.2",
-    "react-scripts": "1.1.4"
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-scripts": "3.1.1",
+    "cross-env": "^5.2.0",
+    "jsdoc": "^3.6.3",
+    "uuid": "^3.3.3",
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-proposal-decorators": "^7.4.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
+    "@babel/plugin-transform-react-display-name": "^7.2.0",
+    "@babel/plugin-transform-react-jsx": "^7.3.0",
+    "@babel/plugin-transform-runtime": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "babel-jest": "^24.9.0",
+    "@boostbank/stateful": "^0.1.23"
   },
   "files": [
     "lib/*"
@@ -31,6 +37,6 @@
   },
   "peerDependencies": {
     "react": "^15.0.0-0 || ^16.0.0-0",
-    "@boostbank/stateful": "^0.1.23"
+    "@boostbank/stateful": "^1.0.0-beta.1"
   }
 }
