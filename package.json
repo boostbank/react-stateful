@@ -3,12 +3,6 @@
   "version": "1.0.0-beta.1",
   "main": "lib/index.js",
   "devDependencies": {
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
-    "react-scripts": "3.1.1",
-    "cross-env": "^5.2.0",
-    "jsdoc": "^3.6.3",
-    "uuid": "^3.3.3",
     "@babel/cli": "^7.5.5",
     "@babel/core": "^7.5.5",
     "@babel/plugin-proposal-decorators": "^7.4.4",
@@ -17,8 +11,15 @@
     "@babel/plugin-transform-react-jsx": "^7.3.0",
     "@babel/plugin-transform-runtime": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
+    "@boostbank/stateful": "^1.0.0-beta.1",
+    "babel-eslint": "^10.0.3",
     "babel-jest": "^24.9.0",
-    "@boostbank/stateful": "^1.0.0-beta.1"
+    "cross-env": "^5.2.0",
+    "jsdoc": "^3.6.3",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-scripts": "3.1.1",
+    "uuid": "^3.3.3"
   },
   "files": [
     "lib/*"
