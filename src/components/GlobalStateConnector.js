@@ -28,10 +28,7 @@ class GlobalStateConnector {
   constructor() {
     this.listeners = [];
     this.listen = this.listen.bind(this);
-    this.notify = this.notify.bind(this);
     this.ignore = this.ignore.bind(this);
-    this.getComponent = this.getComponent.bind(this);
-    this.setComponent = this.setComponent.bind(this);
     this.reset = this.reset.bind(this);
   }
 
