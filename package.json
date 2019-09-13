@@ -43,5 +43,17 @@
   "peerDependencies": {
     "react": "^15.0.0-0 || ^16.0.0-0",
     "@boostbank/stateful": "^1.0.0-beta.1"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

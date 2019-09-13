@@ -70,3 +70,5 @@ class GlobalStateConnector {
     this.listeners = [];
   }
 }
+
+module.exports = getInstance();
