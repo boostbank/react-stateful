@@ -40,10 +40,10 @@ class GlobalStateConnector {
     }
   }
 
-  notify(state) {
+  notify(state, modified) {
     for (let i = 0; i < this.listeners.length; i++) {
       const currentListener = this.listeners[i];
-      currentListener.updateCallback(state);
+      currentListener.updateCallback(state, modified);
     }
   }
 

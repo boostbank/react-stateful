@@ -14,9 +14,9 @@ export default class GlobalState extends Component {
   }
 
   componentDidMount() {
-    subscribe(store => {
+    subscribe((store, modified) => {
       this.setState(store);
-      notify(store);
+      notify(store, modified);
     });
   }
 
