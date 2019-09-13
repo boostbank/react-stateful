@@ -1,6 +1,5 @@
 import React from "react";
-import { rollback } from "@boostbank/stateful";
-import { lookup, subModify } from "@boostbank/stateful/lib/substore";
+import { lookup, subModifyAsync } from "@boostbank/stateful";
 import {
   connectTo,
   disconnectFrom,
@@ -19,9 +18,11 @@ export default class ListenerComponent extends React.Component {
   }
 
   componentDidMount() {
-    connectTo(this, lookup().test, store => {
+    connectTo(this, lookup().test, (store, modified) => {
       this.setState({
         subText: store.subText
+      }, ()=>{
+        modified(this);
       });
     });
   }
@@ -31,9 +32,11 @@ export default class ListenerComponent extends React.Component {
   }
 
   handleChange(e) {
-    subModify(lookup().test, store => {
+    subModifyAsync(this, lookup().test, store => {
       store.subText = e.target.value;
       return store;
+    }, ()=>{
+      console.log("GOT EMMMMMMMM");
     });
   }
 
