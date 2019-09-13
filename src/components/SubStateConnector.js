@@ -2,7 +2,7 @@ var {
   hasSubStore,
   subscribeTo,
   unsubscribeFrom
-} = require("@boostbank/stateful/lib/substore");
+} = require("@boostbank/stateful");
 
 let instance = undefined;
 

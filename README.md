@@ -1,6 +1,6 @@
 ## Official React Stateful package.
 
-> The objective on this Packages is to allow Global State in React.
+> The objective on this Packages is to allow shared state management in React.
 
 ## Code Samples
 

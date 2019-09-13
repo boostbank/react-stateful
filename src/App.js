@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import GlobalState from "./components/GlobalState";
-import ListenerComponent from './ListenerComponent';
+import ListenerComponent from "./ListenerComponent";
 import { createStore, modify } from "@boostbank/stateful";
+
+createStore({test: "No Hello"})
 
 class App extends Component {
   render() {
@@ -13,9 +14,7 @@ class App extends Component {
     }, 5000);
     return (
       <div className="App">
-        <GlobalState store={createStore({test: "No Hello"})}>
-          <ListenerComponent/>
-        </GlobalState>
+        <ListenerComponent />
       </div>
     );
   }

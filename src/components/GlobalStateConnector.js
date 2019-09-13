@@ -1,3 +1,5 @@
+const { subscribe, unsubscribe } = require("@boostbank/stateful");
+
 let instance = undefined;
 
 const getInstance = () => {
@@ -24,47 +26,36 @@ const containsListeners = (listeners, listener) => {
  */
 class GlobalStateConnector {
   constructor() {
-    this.currentComponent = undefined;
     this.listeners = [];
+    this.listen = this.listen.bind(this);
+    this.ignore = this.ignore.bind(this);
+    this.reset = this.reset.bind(this);
   }
 
   listen(listener, updateCallback) {
-    if (!containsListeners(getInstance().listeners, listener)) {
-      getInstance().listeners.push({ listener, updateCallback });
-    }
-  }
-
-  notify(state) {
-    for (let i = 0; i < getInstance().listeners.length; i++) {
-      const currentListener = getInstance().listeners[i];
-      currentListener.updateCallback(state);
+    if (!containsListeners(this.listeners, listener)) {
+      this.listeners.push({ listener, updateCallback });
+      subscribe(updateCallback);
     }
   }
 
   ignore(listener) {
-    for (let i = 0; i < getInstance().listeners.length; i++) {
-      const currentListener = getInstance().listeners[i];
+    for (let i = 0; i < this.listeners.length; i++) {
+      const currentListener = this.listeners[i];
       if (currentListener.listener === listener) {
-        getInstance().listeners.splice(i, 1);
-        i = getInstance().listeners.length;
+        unsubscribe(listener.updateCallback);
+        this.listeners.splice(i, 1);
+        i = this.listeners.length;
       }
     }
   }
 
-  getComponent() {
-    return getInstance().currentComponent;
-  }
-
-  setComponent(component) {
-    getInstance().currentComponent = component;
-  }
-
   reset() {
-    getInstance().currentComponent = undefined;
-    getInstance().listeners = [];
+    this.listeners.forEach(listener => {
+      unsubscribe(listener.updateCallback);
+    });
+    this.listeners = [];
   }
 }
 
-var initializer = getInstance();
-
-module.exports = initializer;
+module.exports = getInstance();
