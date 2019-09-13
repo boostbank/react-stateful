@@ -1,5 +1,5 @@
 import { Component } from "react";
-import Stateful from "@boostbank/stateful";
+import {subscribe} from "@boostbank/stateful";
 import { setComponent, reset, notify } from "./GlobalStateConnector";
 
 export default class GlobalState extends Component {
@@ -14,7 +14,7 @@ export default class GlobalState extends Component {
 
   componentDidMount() {
     setComponent(this);
-    Stateful.subscribe(store => {
+    subscribe(store => {
       this.setState(store);
       notify(store);
     });
